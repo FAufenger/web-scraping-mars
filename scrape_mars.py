@@ -10,7 +10,7 @@ import time
 
 def init_browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
-    return Browser('chrome', **executable_path, headless=False)
+    return Browser('chrome', **executable_path, headless=True)
 
 def master_scrape():
     # Start browser
@@ -39,14 +39,14 @@ def master_scrape():
         results = soup.find('li', class_="slide")
 
         # Extract first title and paragraph, and assign to variables
+        news_date = results.find('div', class_='list_date').text       
         news_title = results.find('div', class_='content_title').text
-        news_p = results.find('div', class_='article_teaser_body').text
-        news_date = results.find('div', class_='list_date').text
+        news_p = results.find('div', class_='article_teaser_body').text        
 
         # Append image to collection dictionary
         mars_news['news_date'] = news_date
         mars_news['news_title'] = news_title
-        mars_news['news_abtsract'] = news_p
+        mars_news['news_abstract'] = news_p
         print('news success')
     except:
         mars_news['news_date'] = 'news_date'
@@ -88,7 +88,7 @@ def master_scrape():
         # Table for viewing
         mars_facts_df.set_index("Description", inplace=True)
         # Convert table to html
-        mars_table_html = mars_facts_df.to_html(index=True, header=True, border=0, justify="left")
+        mars_table_html = mars_facts_df.to_html(index=True, header=True, justify="center")
         mars_table_html = mars_table_html.replace("\n","")
         # Append to collection dictionary
         mars_news["mars_table_html"] = mars_table_html
@@ -159,7 +159,7 @@ def master_scrape():
     
     # Quit Browser
     browser.quit()
-    print('Browser closed')
+    print('Browser closing')
 
     print('Scraping Complete')
     return mars_news

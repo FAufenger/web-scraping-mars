@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 
-<body>
+<body style="background-color: #bdb4b4a9">
   <div class="container-fluid">
     <div class="jumbotron text-center">
       <h1>Visit Mars?!</h1>
@@ -19,16 +19,14 @@
   </div>
   <div class="container">
     <div class="row" id="mars-news">
-      
       <div class="col-md-6">
-        
-          <h2>Latest Mars News:</h2>
-          <h5>{{mars_data.news_date}}</h5>
-          <h3 style= "color: #201f1f"> {{mars_data.news_title}}</h3>
-            <p style="color: #5e0f0f"> 
-                Why is abstract not showing up?!?!?!?!?!?!
-                {{mars_data.news_abstract}}
-            </p>
+        <h2>Recent News:</h2>
+        <h5 style="color: #5e0f0f"> {{ mars_data.news_date }}</h5>
+        <h1>-------------</h1>
+        <h3 style= "color: #412f2f"> {{ mars_data.news_title }}</h3>
+          <p style="color: #5e0f0f"> 
+            Abstract: {{ mars_data.news_abstract }}
+          </p>
         
       </div>
       <div class="col-md-6">
@@ -36,6 +34,14 @@
       </div>
     </div>
 
+  <div class="container">
+    <div class="row" id="mars-facts">
+      <div class="col-md-6">
+        <h2>General Facts</h2>
+        <p>{{ mars_data.mars_table_html | safe }}</p>
+      </div>
+    </div>
+  </div>
     
 </body>
 

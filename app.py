@@ -21,10 +21,9 @@ def index():
 # Call `master_scrape` Function
 @app.route("/scrape")
 def scrape():
-    mars_new_news = scrape_mars.master_scrape()
     mars_data = mongo.db.mars_data
+    mars_new_news = scrape_mars.master_scrape()
     mars_data.update({}, mars_new_news, upsert=True)
-    
     return redirect("/")
 
 # Create raw json format data page to review work
