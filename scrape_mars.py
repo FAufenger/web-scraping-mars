@@ -88,7 +88,7 @@ def master_scrape():
         # Table for viewing
         mars_facts_df.set_index("Description", inplace=True)
         # Convert table to html
-        mars_table_html = mars_facts_df.to_html(index=True, header=True, justify="center")
+        mars_table_html = mars_facts_df.to_html(index=True, header=True, justify="left")
         mars_table_html = mars_table_html.replace("\n","")
         # Append to collection dictionary
         mars_news["mars_table_html"] = mars_table_html
