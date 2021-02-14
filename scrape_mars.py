@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # coding: utf-8
-# Base for 
 
 # Import Dependencies
 from splinter import Browser
@@ -11,11 +10,13 @@ import time
 
 def init_browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
-    return Browser('chrome', **executable_path, headless=True)
+    return Browser('chrome', **executable_path, headless=False)
 
 def master_scrape():
     # Start browser
     browser = init_browser()
+    # Pause to allows browser to open
+    time.sleep(1)
     # Dictionary to holdall desired scraped variables
     mars_news = {}
 
@@ -46,12 +47,12 @@ def master_scrape():
         mars_news['news_date'] = news_date
         mars_news['news_title'] = news_title
         mars_news['news_abtsract'] = news_p
-
+        print('news success')
     except:
         mars_news['news_date'] = 'news_date'
         mars_news['news_title'] = 'news_title'
         mars_news['news_abstract'] = 'news_p'
-
+        print('news failure')
 
     ############## JPL Mars Space Images - Featured Image ##############
 
@@ -71,9 +72,10 @@ def master_scrape():
         featured_image_url = f'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/{image_location}'
         # Append image to collection dictionary
         mars_news['featured_image_url'] = featured_image_url
+        print('space image success')
     except:
         mars_news['featured_image_url'] = 'featured_image_url'
-
+        print('space image failure')
     ################### Mars Facts ################################
 
     try:
@@ -90,10 +92,10 @@ def master_scrape():
         mars_table_html = mars_table_html.replace("\n","")
         # Append to collection dictionary
         mars_news["mars_table_html"] = mars_table_html
-
+        print('facts success')
     except:
         mars_news["mars_table_html"] = 'mars_table_htm'
-
+        print('facts failure')
 
     ##################### Mars Hemispheres ##########################
 
@@ -149,13 +151,18 @@ def master_scrape():
                 break
                 
         # Print list of dictionaries
-        mars_news["hemisphere_image_urls"] =hemisphere_image_urls
-
+        mars_news["hemisphere_image_urls"] = hemisphere_image_urls
+        print('hemisphere success')
     except:
         mars_news["hemisphere_image_urls"] ='hemisphere_image_urls' 
+        print('hemisphere failure')
+    
+    # Quit Browser
+    browser.quit()
+    print('Browser closed')
 
+    print('Scraping Complete')
     return mars_news
-# Quit Browser
-browser.quit()
+    
 
 
