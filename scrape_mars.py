@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
+# Base for 
 
 # Import Dependencies
 from splinter import Browser
@@ -12,7 +13,7 @@ def init_browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
     return Browser('chrome', **executable_path, headless=True)
 
-def scrape():
+def master_scrape():
     # Start browser
     browser = init_browser()
     # Dictionary to holdall desired scraped variables
@@ -95,7 +96,7 @@ def scrape():
 
 
     ##################### Mars Hemispheres ##########################
-    
+
     try:
         # Visit Mars hemispheres website
         usgs_astrogeology_mars_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
@@ -153,6 +154,7 @@ def scrape():
     except:
         mars_news["hemisphere_image_urls"] ='hemisphere_image_urls' 
 
+    return mars_news
 # Quit Browser
 browser.quit()
 
