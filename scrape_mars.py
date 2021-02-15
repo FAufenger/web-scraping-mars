@@ -70,12 +70,14 @@ def master_scrape():
         image_location = image_tag.get('src')
         # Combine base url with uri
         featured_image_url = f'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/{image_location}'
+        
         # Append image to collection dictionary
         mars_news['featured_image_url'] = featured_image_url
         print('space image success')
     except:
         mars_news['featured_image_url'] = '5eatured_image_url'
         print('space image failure')
+
     ################### Mars Facts ################################
 
     try:

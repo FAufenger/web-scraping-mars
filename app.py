@@ -3,6 +3,7 @@ from flask import Flask, request, render_template, redirect
 from flask_pymongo import PyMongo
 import scrape_mars
 
+
 # Set up Flask
 app = Flask(__name__)
 
@@ -24,7 +25,7 @@ def scrape():
     mars_data = mongo.db.mars_data
     mars_new_news = scrape_mars.master_scrape()
     mars_data.update({}, mars_new_news, upsert=True)
-    return redirect("/")
+    return redirect("/", code=302)
 
 # Create raw json format data page to review work
 @app.route("/scrape-raw")

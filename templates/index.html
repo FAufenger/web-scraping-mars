@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="container" style="padding-top: 10%;">
+  <div class="container" style="padding-top: 2%;">
     <div class="row" id="mars-facts">
       <div class="col-md-6">
         <h2>General Facts</h2>
@@ -46,18 +46,22 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" style="padding-top: 5%;">
     <div class="row" id="mars-hemispheres">
       <div class="col-md-12">
+        <div class= "text-center">
+          <h3> High resolution photos of Mars' hemispheres:</h3>
+        </div>
         {% for dictionary in mars_data.hemisphere_info %}
+          <div class="card-body">
+            <p class="card-text">{{ dictionary.title }}</p>
+          </div>
           <!-- If Images are False/None/Non-Existent, Then Default to Error Message -->
           <img class="card-img-top" src="{{ dictionary.img_url }}" alt="...error..."/>
-          <div class="card-body">
-            <p class="card-text">{{ dictionary.title }}1</p>
-          </div>
+          <br>
+          <hr>
         {% endfor %}    
-        <p> {{ mars_data.hemisphere_info.title }}2</p>
-        <div>
+      <div>
     </div>
   </div>
     
