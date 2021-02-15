@@ -17,7 +17,7 @@ def master_scrape():
     browser = init_browser()
     # Pause to allows browser to open
     time.sleep(1)
-    # Dictionary to holdall desired scraped variables
+    # Dictionary to hold all desired scraped variables
     mars_news = {}
 
     ################ NASA Mars News #####################
