@@ -18,9 +18,6 @@ Created a template HTML file called index.html that takes the mars data dictiona
 
 This resulted in a page that looks like the images below:
 
-![button](./images/button.png)
+![Sample Page](./images/sample_page.png)
 
-![recent news](./images/recent_news.png)
-
-![hemisphere](./images/hemisphere.png)
 
