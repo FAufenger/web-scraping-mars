@@ -26,12 +26,12 @@
           <p style="padding-top: 5%;"> 
             Abstract: {{ mars_data.news_abstract }}
           </p>
-        
       </div>
       <div class="col-md-6" id="mars-image">
         <img src="{{mars_data.featured_image_url}}" alt="Mars featured image" style="max-width: 100%; height: 400px;">
       </div>
     </div>
+  </div>
 
   <div class="container" style="padding-top: 10%;">
     <div class="row" id="mars-facts">
@@ -44,15 +44,15 @@
 
   <div class="container">
     <div class="row" id="mars-hemispheres">
-        {% for hemisphere in mars_data.hemispheres_image_urls %}
-        <div class="col-md-3">
-          <!-- If Images are False/None/Non-Existent, Then Default to Error Message -->
-          <img class="card-img-top" src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="..."/>
+      <div class="col-md-12">
+        {% for item in mars_data.hemisphere_info %}
+        <!-- If Images are False/None/Non-Existent, Then Default to Error Message -->
+          <img class="card-img-top" src="{{ item[img_url] }}" alt="...error..."/>
           <div class="card-body">
-            <p class="card-text">{{hemisphere.title}}</p>
+            <p class="card-text">{{ item }} test test </p>
           </div>
-        <div>
-        {% endfor %}
+        {% endfor %}    
+      <div>
     </div>
   </div>
     

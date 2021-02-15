@@ -114,7 +114,7 @@ def master_scrape():
         #Look on developer tool and find where each hemisphere is stored
         hemisphere_locate = soup.find_all('div', class_='item')
         # Create a list to store our dictionaries
-        hemisphere_image_urls = []
+        hemisphere_info = []
         # Add a count to shorten overall run time
         count = 0
 
@@ -137,7 +137,7 @@ def master_scrape():
             # combine partial and pre url
             img_url = hemisphere_base_url + image_partial_url
             # Append list with title and full size url to hemisphere_image_urls using a Python dictionary
-            hemisphere_image_urls.append({"title" : title, "img_url" : img_url})
+            hemisphere_info.append({"title" : title, "img_url" : img_url})
             
             # Add count
             count += 1
@@ -151,10 +151,10 @@ def master_scrape():
                 break
                 
         # Print list of dictionaries
-        mars_news["hemisphere_image_urls"] = hemisphere_image_urls
+        mars_news["hemisphere_info"] = hemisphere_info
         print('hemisphere success')
     except:
-        mars_news["hemisphere_image_urls"] ='hemisphere_image_urls' 
+        mars_news["hemisphere_info"] ='hemisphere_info' 
         print('hemisphere failure')
     
     # Quit Browser
