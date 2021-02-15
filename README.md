@@ -1,6 +1,8 @@
 # web-scraping-challenge
 
-Scrape the NASA sites and collect the latest informatiin and images
+This assignment builds a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page
+
+Back end searching
 
 ![back end sampeling](./images/back_end_sample.png)
 
