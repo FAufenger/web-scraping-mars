@@ -29,8 +29,8 @@ def scrape():
 # Create raw json format data page to review work
 @app.route("/scrape-raw")
 def scrape_raw():
-    mars_stuff = scrape_mars.master_scrape()
-    return jsonify(mars_stuff)
+    mars_news = scrape_mars.master_scrape()
+    return jsonify(mars_news)
 
 if __name__ == "__main__":
     app.run(debug=True)

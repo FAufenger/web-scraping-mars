@@ -49,9 +49,9 @@ def master_scrape():
         mars_news['news_abstract'] = news_p
         print('news success')
     except:
-        mars_news['news_date'] = 'news_date'
-        mars_news['news_title'] = 'news_title'
-        mars_news['news_abstract'] = 'news_p'
+        mars_news['news_date'] = '1news_date'
+        mars_news['news_title'] = '2news_title'
+        mars_news['news_abstract'] = '3news_p'
         print('news failure')
 
     ############## JPL Mars Space Images - Featured Image ##############
@@ -74,7 +74,7 @@ def master_scrape():
         mars_news['featured_image_url'] = featured_image_url
         print('space image success')
     except:
-        mars_news['featured_image_url'] = 'featured_image_url'
+        mars_news['featured_image_url'] = '5eatured_image_url'
         print('space image failure')
     ################### Mars Facts ################################
 
@@ -94,7 +94,7 @@ def master_scrape():
         mars_news["mars_table_html"] = mars_table_html
         print('facts success')
     except:
-        mars_news["mars_table_html"] = 'mars_table_htm'
+        mars_news["mars_table_html"] = 'mars_7able_htm'
         print('facts failure')
 
     ##################### Mars Hemispheres ##########################
@@ -132,12 +132,12 @@ def master_scrape():
             image_html = browser.html
             # Parse HTML with Beautiful Soup
             soup = BeautifulSoup(image_html, 'html.parser')
-            # Looked on click page to fnd where full res image is stored
+            # Looked on new page to fnd where full res image is stored
             image_partial_url = soup.find('img', class_='wide-image')['src']
             # combine partial and pre url
             img_url = hemisphere_base_url + image_partial_url
             # Append list with title and full size url to hemisphere_image_urls using a Python dictionary
-            hemisphere_info.append({"title" : title, "img_url" : img_url})
+            hemisphere_info.append({'title' : title, 'img_url' : img_url})
             
             # Add count
             count += 1
@@ -150,19 +150,17 @@ def master_scrape():
             else:
                 break
                 
-        # Print list of dictionaries
-        mars_news["hemisphere_info"] = hemisphere_info
-        print('hemisphere success')
+        # List of dictionaries
+        mars_news['hemisphere_info'] = hemisphere_info
+        print('hemisphere_success')
     except:
-        mars_news["hemisphere_info"] ='hemisphere_info' 
+        mars_news['hemisphere_info'] ='h3misphere_info' 
         print('hemisphere failure')
     
     # Quit Browser
     browser.quit()
-    print('Browser closing')
+    print('Quitting Browser')
 
     print('Scraping Complete')
     return mars_news
     
-
-

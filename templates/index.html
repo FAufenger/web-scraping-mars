@@ -19,15 +19,15 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-6" id="mars-news">
-        <h2 style="padding-top: 5%;">Recent News:</h2>
+      <div class="col-md-5" id="mars-news">
+        <h2 style="padding-top: 1%;">Recent News:</h2>
         <h5 style="padding-top: 5%;"> {{ mars_data.news_date }}</h5>
-        <h3 style="padding-top: 5;"> {{ mars_data.news_title }}</h3>
+        <h3 style="padding-top: 5%;"> {{ mars_data.news_title }}</h3>
           <p style="padding-top: 5%;"> 
             Abstract: {{ mars_data.news_abstract }}
           </p>
       </div>
-      <div class="col-md-6" id="mars-image">
+      <div class="col-md-7" id="mars-image">
         <img src="{{mars_data.featured_image_url}}" alt="Mars featured image" style="max-width: 100%; height: 400px;">
       </div>
     </div>
@@ -39,20 +39,25 @@
         <h2>General Facts</h2>
         <p>{{ mars_data.mars_table_html | safe }}</p>
       </div>
+      <div class="col-md-6">
+        <h2>Mars joke?</h2>
+        <p>Something </p>
+      </div>
     </div>
   </div>
 
   <div class="container">
     <div class="row" id="mars-hemispheres">
       <div class="col-md-12">
-        {% for item in mars_data.hemisphere_info %}
-        <!-- If Images are False/None/Non-Existent, Then Default to Error Message -->
-          <img class="card-img-top" src="{{ item[img_url] }}" alt="...error..."/>
+        {% for dictionary in mars_data.hemisphere_info %}
+          <!-- If Images are False/None/Non-Existent, Then Default to Error Message -->
+          <img class="card-img-top" src="{{ dictionary.img_url }}" alt="...error..."/>
           <div class="card-body">
-            <p class="card-text">{{ item }} test test </p>
+            <p class="card-text">{{ dictionary.title }}1</p>
           </div>
         {% endfor %}    
-      <div>
+        <p> {{ mars_data.hemisphere_info.title }}2</p>
+        <div>
     </div>
   </div>
     
