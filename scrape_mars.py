@@ -47,12 +47,12 @@ def master_scrape():
         mars_news['news_date'] = news_date
         mars_news['news_title'] = news_title
         mars_news['news_abstract'] = news_p
-        print('news success')
+        # print('news success')
     except:
         mars_news['news_date'] = '1news_date'
         mars_news['news_title'] = '2news_title'
         mars_news['news_abstract'] = '3news_p'
-        print('news failure')
+        # print('news failure')
 
     ############## JPL Mars Space Images - Featured Image ##############
 
@@ -73,10 +73,10 @@ def master_scrape():
         
         # Append image to collection dictionary
         mars_news['featured_image_url'] = featured_image_url
-        print('space image success')
+        # print('space image success')
     except:
         mars_news['featured_image_url'] = '5eatured_image_url'
-        print('space image failure')
+        # print('space image failure')
 
     ################### Mars Facts ################################
 
@@ -94,10 +94,10 @@ def master_scrape():
         
         # Append to collection dictionary
         mars_news["mars_table_html"] = mars_table_html
-        print('facts success')
+        # print('facts success')
     except:
         mars_news["mars_table_html"] = 'mars_7able_htm'
-        print('facts failure')
+        # print('facts failure')
 
     ##################### Mars Hemispheres ##########################
 
@@ -154,15 +154,15 @@ def master_scrape():
                 
         # List of dictionaries
         mars_news['hemisphere_info'] = hemisphere_info
-        print('hemisphere_success')
+        # print('hemisphere_success')
     except:
         mars_news['hemisphere_info'] ='h3misphere_info' 
-        print('hemisphere failure')
+        # print('hemisphere failure')
     
     # Quit Browser
     browser.quit()
-    print('Quitting Browser')
+    # print('Quitting Browser')
 
-    print('Scraping Complete')
+    # print('Scraping Complete')
     return mars_news
     
