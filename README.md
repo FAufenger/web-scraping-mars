@@ -14,7 +14,7 @@ Back end searching
 
  * Created a root route / that queries the Mongo database and passes the mars data into an HTML template to display the data.
 
-![roots sampeling](./images/sampleRoot.png)
+![routes sampeling](./images/sampleRoutes.png)
 
  * Created a template HTML file called index.html that takes the mars data dictionary and displays all of the data in the appropriate HTML elements.
 
